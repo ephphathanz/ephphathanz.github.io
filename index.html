@@ -1,6 +1,420 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Tailwind CSS test (Ephphatha Theme)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src='https://cdn.tailwindcss.com/3.3.2'></script>
+<style>
+@media only screen and (max-width: 767px) {
+  .event-chart {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding-bottom: 1.5rem;
+  }
+
+  .event-chart dt {
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding-top: 1.5rem;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .event-chart dd {
+    color: #888;
+    font-size: 14px;
+  }
+
+  .event-chart__helper {
+    display: none;
+  }
+}/* event-chart */
+
+
+
+.event-chart__helper {
+  background: #f9f9f9;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+
+@media only screen and (min-width: 768px) {
+  dl {
+    display: grid;
+    grid-template: auto / 10em 1fr;
+    width: 100%;
+    border-left: 1px solid rgba(0,0,0,.1);
+    border-right: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    box-sizing: border-box;
+    grid-template-columns: auto auto auto;
+  }
+
+  dt {
+    border-right: 1px solid rgba(0,0,0,.1);
+  }
+
+  dt, dd {
+    margin: 0;
+    padding: .3em .5em;
+    border-top: 1px solid rgba(0,0,0,.1);
+    box-sizing: border-box;
+    padding: 1rem 1.5rem;
+  }
+
+  dt { grid-column: 1; }
+  dd { grid-column: 2; text-align: center; }
+  dd + dd { grid-column: 3; align-self: end; border-left: 1px solid rgba(0,0,0,.1); }
+}
+</style>
+
+</head>
 <body>
-<p>Coming soon</p>
+<!-- partial:index.partial.html -->
+<section class="py-16">
+
+  <div class="container max-w-screen-xl mx-auto px-4">
+
+    <nav class="flex-wrap lg:flex items-center justify-between mb-24 xl:mb-48" x-data="{navbarOpen:false}">
+      <div class="flex items-center mb-10 lg:mb-0">
+        <a href="#" class="h-10 md:h-10 lg:h-20 xl:h-10 font-bold text-4xl md:text-4xl lg:text-4xl xl:text-5xl">W.E.C.C</a>
+
+        <button class="w-10 h-10 lg:hidden ml-auto flex items-center justify-center text-indigo-800 rounded-md" @click="navbarOpen = !navbarOpen">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+
+        </button>
+      </div>
+
+      <ul class="lg:flex flex-col lg:flex-row lg:items-center lg:space-x-20 mb-10 xl:mb-0" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
+        <li class="font-medium text-gray-500 text-lg hover:text-gray-400 transiton ease-in-out duration-300 mb-5 lg:mb-0">
+          <a data-scroll href="#event">What's On</a>
+        </li>
+        <li class="font-medium text-gray-500 text-lg hover:text-gray-400 transiton ease-in-out duration-300 mb-5 lg:mb-0">
+          <a data-scroll href="#venue">Venue</a>
+        </li>
+        <li class="font-medium text-gray-500 text-lg hover:text-gray-400 transiton ease-in-out duration-300 mb-5 lg:mb-0">
+          <a data-scroll href="#community">Community</a>
+        </li>
+        <li class="font-medium text-gray-500 text-lg hover:text-gray-400 transiton ease-in-out duration-300 mb-5 lg:mb-0">
+          <a data-scroll href="#about">About</a>
+        </li>
+        <li class="px-8 py-3 font-medium text-indigo-800 text-lg text-center border-2 border-indigo-800 rounded-md hover:bg-indigo-800 hover:text-white transiton ease-linear duration-300">
+          <a data-scroll href="#contact">Enquire Now</a>
+        </li>
+      </ul>
+    </nav>
+
+    <header class="flex flex-col lg:flex-row justify-between lg:mb-20">
+      <div class="text-center lg:text-left mb-20 lg:mb-0">
+        <div class="flex items-center justify-center lg:justify-start gap-2 mb-10">
+          <span class="w-20 h-0.5 bg-indigo-700"></span>
+
+          <p class="font-medium text-indigo-700 text-xl">Auckland / New Zealand</p>
+        </div>
+
+        <h1 class="font-bold text-gray-800 text-4xl md:text-6xl xl:text-7xl mb-10">Westcity Ephphatha <br> Christian Community</h1>
+
+        <p class="font-normal text-gray-500 text-xl md:text-xl xl:text-xl mb-10">
+Bringing people together.<br>
+Make the world a better place.</p>
+
+        <div class="space-y-5 lg:space-x-5 mb-10">
+          <a data-scroll href="#about" class="block md:inline px-8 py-3 font-medium bg-indigo-800 text-white text-lg rounded-md hover:bg-indigo-600 transiton ease-in-out duration-300">Our Vision</a>
+
+          <a data-scroll href="#event" class="block md:inline px-8 py-3 font-medium text-indigo-800 text-lg border-2 border-indigo-800 rounded-md hover:bg-indigo-600 hover:text-white transiton ease-linear duration-300">What's On</a>
+        </div>
+
+        <hr class="text-gray-500 mb-5">
+
+        <span class="font-normal text-gray-500 text-sm">*W.E.C.C is a member of the <a href="https://www.agnz.org/" target="_blank">Assemblies of God New Zealand</a>.</span>
+      </div>
+
+      <div class="mx-auto lg:mx-0 xl:mx-0">
+        <img class="md:max-w-md" src="https://images.pexels.com/photos/4552789/pexels-photo-4552789.jpeg" alt="Image">
+      </div>
+    </header>
+
+  </div><!-- container.// -->
+
+</section>
+
+<section id="about" class="py-16 lg:mb-20">
+
+  <div class="container max-w-screen-xl mx-auto px-4">
+
+    <h1 class="font-semibold text-gray-800 text-5xl text-center mb-20 xl:mb-40 leading-9">
+      <strong class="font-semibold">Our Vision & Mission</strong> <br>
+      <small class="text-xl text-slate-400">Our mission at W.E.C.C is to help people to create a better world.</small>
+    </h1>
+
+
+    <div class="flex flex-col xl:flex-row gap-16">
+      <div class="mx-auto xl:mx-0">
+        <img src="https://assets.codepen.io/39373/wecc-image-2.jpg" alt="Image">
+      </div>
+
+      <div class="grid grid-cols-2 text-center xl:text-left xl:gap-x-24 mt-10">
+        <div class="mb-16 xl:mb-0">
+          <h4 class="font-semibold text-gray-800 text-md md:text-lg mb-5">Supporting Christian Leaders</h4>
+
+          <p class="font-normal text-gray-500 text-xs md:text-sm mb-5">Refresh your leadership mindset. <br> Take a break, get inspired.</p>
+        </div>
+
+        <div class="mb-16 xl:mb-0">
+          <h4 class="font-semibold text-gray-800 text-md md:text-lg mb-5">Ministry Counselling</h4>
+
+          <p class="font-normal text-gray-500 text-xs md:text-sm mb-5">Providing counselling for <br>ministry leaders and teams.</p>
+        </div>
+
+        <div class="mb-16 xl:mb-0">
+          <h4 class="font-semibold text-gray-800 text-md md:text-lg mb-5">Leadership Coaching</h4>
+
+          <p class="font-normal text-gray-500 text-xs md:text-sm mb-5">Coaching & Mentoring. <br>Improve your SQ/EQ/IQ balance.</p>
+        </div>
+
+        <div class="mb-16 xl:mb-0">
+          <h4 class="font-semibold text-gray-800 text-md md:text-lg mb-5">Career and Life Path Counseling</h4>
+
+          <p class="font-normal text-gray-500 text-xs md:text-sm mb-5">Know your strengths and <br>reframe your focus.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-gray-800 text-md md:text-lg mb-5">Workshop & Seminars</h4>
+
+          <p class="font-normal text-gray-500 text-xs md:text-sm mb-5">Leadership development, <br>team building and strategy sessions.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-gray-800 text-md md:text-lg mb-5">Community Activities</h4>
+
+          <p class="font-normal text-gray-500 text-xs md:text-sm mb-5">Community Events, Learn Art, Music and Media. <br>Visiting Care Homes and Hospitals.</p>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- container.// -->
+
+</section>
+
+<section id="community" class="bg-orange-100 py-16 lg:mb-20">
+
+  <div class="container max-w-screen-xl mx-auto px-4">
+
+    <h3 class="font-semibold text-3xl text-center mb-5">Organisations</h3>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 text-center font-semibold">
+      <p class="mb-5 md:mb-10 xl:mb-0 text-xl">Ephphatha Christian Community</p>
+
+      <p class="mb-5 md:mb-10 xl:mb-0 text-lg">P.O.F.I (Pentecostal Outreach Fellowship International)</p>
+
+      <p class="mb-5 md:mb-10 xl:mb-0 text-lg">G.O.C (Garden of Christ)</p>
+
+      <p class="mb-5 md:mb-10 xl:mb-0 text-lg">E.F.K.T (Ekalesia Fakapotopotoga Kelisiano Tuvalu)</p>
+
+    </div>
+
+  </div> <!-- container.// -->
+
+</section>
+
+<section id="venue" class="py-16">
+
+  <div class="container max-w-screen-xl mx-auto px-4">
+
+    <h1 class="font-semibold text-gray-800 text-5xl text-center mb-20 xl:mb-40 leading-9">
+      <strong class="font-semibold">Venue</strong> <br>
+      <small class="text-xl text-slate-400">Westcity Ephphatha Community Centre</small>
+    </h1>
+
+    <div class="flex justify-center space-x-2 md:space-x-5 xl:space-x-8 mb-2 md:mb-5 xl:mb-8">
+      <div class="space-y-2 md:space-y-5 xl:space-y-8">
+        <img src="https://assets.codepen.io/39373/WECC-venue-01.jpg" alt="Image" class="hover:opacity-75 transition ease-in-out duration-300">
+
+        <img src="https://assets.codepen.io/39373/WECC-venue-02b.jpg" alt="Image" class="hover:opacity-75 transition ease-in-out duration-300">
+      </div>
+
+      <div>
+        <img src="https://assets.codepen.io/39373/WECC-venue-03.jpg" alt="Image" class="hover:opacity-75 transition ease-in-out duration-300">
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <img src="https://assets.codepen.io/39373/WECC-venue-04.jpg" alt="Image" class="hover:opacity-75 transition ease-in-out duration-300">
+    </div>
+
+  </div> <!-- container.// -->
+
+</section>
+
+<section class="py-8 md:py-16">
+
+  <div class="container max-w-screen-xl mx-auto px-4">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div class="text-center mb-10 xl:mb-0">
+        <div class="flex items-center justify-center">
+          <div class="w-24 py-9 flex justify-center bg-indigo-50 text-indigo-500 rounded-md mb-5 md:mb-10">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.125-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265zm-3 0a.375.375 0 11-.53 0L9 2.845l.265.265zm6 0a.375.375 0 11-.53 0L15 2.845l.265.265z" />
+            </svg>
+
+          </div>
+        </div>
+
+        <h2 class="font-semibold text-gray-700 text-xl md:text-3xl mb-5">Event Types</h2>
+
+        <p class="font-normal text-gray-400 text-sm md:text-lg">Wedding, Birthday and Family Event<br>
+          Education, Seminar and Workshops <br>
+          Community Gathering and Special Occasions.</p>
+      </div>
+
+      <div class="text-center mb-10 md:mb-0">
+        <div class="flex items-center justify-center">
+          <div class="w-24 py-9 flex justify-center bg-indigo-50 text-indigo-500 rounded-md mb-5 md:mb-10">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+            </svg>
+
+          </div>
+        </div>
+
+        <h2 class="font-semibold text-gray-700 text-xl md:text-3xl mb-5">The Venue Info</h2>
+
+        <p class="font-normal text-gray-400 text-sm md:text-lg">From approx. 430m<sup>2</sup>.<br>Capacity : 10 - 150 people. <br> Car park spaces : 25-50</p>
+      </div>
+
+      <div class="text-center">
+        <div class="flex items-center justify-center">
+          <div class="w-24 py-9 flex justify-center bg-indigo-50 text-indigo-500 rounded-md mb-5 md:mb-10">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+            </svg>
+
+          </div>
+        </div>
+
+        <h2 class="font-semibold text-gray-700 text-xl md:text-3xl mb-5">Halls & Rooms</h2>
+
+        <p class="font-normal text-gray-400 text-sm md:text-lg">Main Hall : 100 seats <br>
+          Small Chapel : 30 seats <br>
+          Sub Hall: 100 Seats (Currently Unavailable)</p>
+      </div>
+    </div>
+
+  </div> <!-- container.// -->
+</section>
+
+<section id="event" class="py-16 lg:mb-20">
+
+  <div class="container max-w-screen-xl mx-auto px-4">
+
+    <h1 class="font-semibold text-gray-800 text-5xl text-center mb-20 xl:mb-40 leading-9">
+      <strong class="font-semibold">What's on</strong> <br>
+      <small class="text-xl text-slate-400">Current Events & Workshops</small>
+    </h1>
+
+    <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between">
+
+      <dl class="event-chart">
+        <dt class="event-chart__helper">Title</dt>
+        <dd class="event-chart__helper">Information</dd>
+        <dd class="event-chart__helper">Status</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">Learning Korean Language 101</dt>
+        <dd>Every Wednesday, 6:30pm-8:30pm. Feb - Mar 2023</dd>
+        <dd>Ended</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">Discipleship Training (Online)</dt>
+        <dd>Every Tuesday, 7:00pm-9:30pm</dd>
+        <dd>Ongoing</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">Discipleship Training</dt>
+        <dd>Every Wednesday, 6:30pm-9:30pm</dd>
+        <dd>Ongoing</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">G.O.C Youth Worship</dt>
+        <dd>Every Friday, 6:30pm-9:30pm</dd>
+        <dd>Ongoing</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">G.O.C Worship</dt>
+        <dd>Every Saturday, 9:00am-11:30am</dd>
+        <dd>Ongoing</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">P.O.F.I</dt>
+        <dd>Every Saturday, 4:00pm-8:00pm</dd>
+        <dd>Ongoing</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">W.E.C.C Sunday Service</dt>
+        <dd>Every Sunday, 8:00am-11:00am</dd>
+        <dd>Ongoing</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">P.O.F.I Sunday Service</dt>
+        <dd>Every Sunday, 9:30am-1:00pm</dd>
+        <dd>Ongoing</dd>
+
+        <dt class="font-semibold text-gray-600 text-base">G.O.C Sunday Service</dt>
+        <dd>Every Sunday, 1:00pm-6:30pm</dd>
+        <dd>Ongoing</dd>
+      </dl>
+
+    </div>
+</section>
+
+<footer id="contact" class="bg-orange-100 py-16 mb-10">
+
+  <div class="container max-w-screen-xl mx-auto px-4">
+
+    <div class="text-center">
+      <h1 class="font-medium text-gray-700 text-2xl md:text-5xl mb-5">ENQUIRIES</h1>
+
+      <br>
+
+      <p><strong>GENERAL ENQUIRIES:</strong><br />
+        info@ephphatha.co.nz</p>
+
+      <br>
+
+      <p><strong>VENUE HIRE ENQUIRIES:</strong><br />
+        venue@ephphatha.co.nz</p>
+
+      <br>
+
+      <p>
+        <strong>POSTAL ADDRESS:</strong><br />
+        P.O Box 69 - 180, Glendene, Auckland
+        <br />
+        New Zealand<br>
+      </p>
+
+      <br>
+
+      <p>
+        <strong>LOCATION:</strong><br />
+        40 Kirrie Avenue <br />
+        Waitākere, Auckland 0610 <br />
+        New Zealand<br>
+        <strong>T:</strong> +64 27 777 5529
+      </p>
+
+      <br>
+
+      <p>&copy; <script>
+          document.write(new Date().getFullYear())
+        </script> Westcity Ephphatha Christian Community. All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+<!-- partial -->
+<script src='https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js'></script>
+<script src='https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js'></script><script  src="./script.js"></script>
+
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]');
+</script>
+
 </body>
 </html>
